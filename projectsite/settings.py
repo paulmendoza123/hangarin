@@ -162,34 +162,38 @@ ACCOUNT_SIGNUP_FIELDS = [
 ]
 
 
-PWA_APP_NAME = 'ProjectSite'
-PWA_APP_DESCRIPTION = "A Progressive Web App version of ProjectSite"
-PWA_APP_THEME_COLOR = '#0A0A0A'
+# ═══════════════════════════════════════════════════════════
+# Progressive Web App (PWA) Settings
+# ═══════════════════════════════════════════════════════════
+
+PWA_APP_NAME = 'Hangarin'
+PWA_APP_DESCRIPTION = "Task & To-Do Manager - Stay organized and productive"
+PWA_APP_THEME_COLOR = '#667eea'
 PWA_APP_BACKGROUND_COLOR = '#FFFFFF'
 PWA_APP_DISPLAY = 'standalone'
 PWA_APP_SCOPE = '/'
-PWA_APP_ORIENTATION = 'portrait'
+PWA_APP_ORIENTATION = 'any'
 PWA_APP_START_URL = '/'
 PWA_APP_STATUS_BAR_COLOR = 'default'
+
 PWA_APP_ICONS = [
-{
-'src': '/static/img/icon-192.png',
-'sizes': '192x192'
-},
-{
-'src': '/static/img/icon-512.png',
-'sizes': '512x512'
-}
+    {
+        'src': 'https://ui-avatars.com/api/?name=Hangarin&size=192&background=667eea&color=fff',
+        'sizes': '192x192'
+    },
+    {
+        'src': 'https://ui-avatars.com/api/?name=Hangarin&size=512&background=667eea&color=fff',
+        'sizes': '512x512'
+    }
 ]
+
 PWA_APP_ICONS_APPLE = [
-{
-'src': '/static/img/icon-192.png',
-'sizes': '192x192'
-},
-{
-'src': '/static/img/icon-512.png',
-'sizes': '512x512'
-}
+    {
+        'src': 'https://ui-avatars.com/api/?name=Hangarin&size=192&background=667eea&color=fff',
+        'sizes': '192x192'
+    }
 ]
+
 PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')

@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Hangarin - Task Manager{% endblock %}</title>
+    
+    {% progressive_web_app_meta %}
     <style>
     .hover-bg:hover {
         background-color: rgba(255, 255, 255, 0.1);
@@ -18,7 +20,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     {% block extra_css %}{% endblock %}
-    {% progressive_web_app_meta %}
 </head>
 <body>
     <div class="wrapper d-flex">
@@ -133,10 +134,14 @@
                                         </a>
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
+                                    <!-- ✅ FIXED LOGOUT - POST form using Django's logout view -->
                                     <li>
-                                        <a class="dropdown-item text-danger" href="{% url 'account_logout' %}">
+                                        <a href="{% url 'account_logout' %}" class="dropdown-item text-danger">
                                             <i class="fas fa-sign-out-alt me-2"></i> Logout
                                         </a>
+                                            {% csrf_token %}
+    
+                                        </form>
                                     </li>
                                 {% else %}
                                     <li>
