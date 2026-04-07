@@ -27,6 +27,19 @@ SECRET_KEY = 'django-insecure-un#1s8ww&ih^^j0xa8#11_8h)8api^ell7-bwssf!(h7wl$l6$
 DEBUG = True
 ALLOWED_HOSTS = ['paulmendoza981.pythonanywhere.com', '127.0.0.1', 'localhost']
 
+# CSRF Security for Production/PWA/iPhone
+CSRF_TRUSTED_ORIGINS = [
+    'https://paulmendoza981.pythonanywhere.com',
+    'http://127.0.0.1:8000',
+    'http://localhost:8000',
+]
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SAMESITE = 'Lax'
+CSRF_COOKIE_SAMESITE = 'Lax'
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
 
 # Application definition
 
@@ -178,18 +191,18 @@ PWA_APP_STATUS_BAR_COLOR = 'default'
 
 PWA_APP_ICONS = [
     {
-        'src': 'https://ui-avatars.com/api/?name=Hangarin&size=192&background=667eea&color=fff',
+        'src': '/static/img/icon-192.png',
         'sizes': '192x192'
     },
     {
-        'src': 'https://ui-avatars.com/api/?name=Hangarin&size=512&background=667eea&color=fff',
+        'src': '/static/img/icon-512.png',
         'sizes': '512x512'
     }
 ]
 
 PWA_APP_ICONS_APPLE = [
     {
-        'src': 'https://ui-avatars.com/api/?name=Hangarin&size=192&background=667eea&color=fff',
+        'src': '/static/img/icon-192.png',
         'sizes': '192x192'
     }
 ]
