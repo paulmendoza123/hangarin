@@ -26,9 +26,11 @@
         }
         .nav-pills .nav-link {
             color: #667eea;
+            border-radius: 8px;
         }
         .nav-pills .nav-link.active {
             background-color: #667eea;
+            color: white;
         }
         .social-btn {
             width: 50px;
@@ -44,6 +46,10 @@
         .social-btn:hover {
             transform: scale(1.1);
         }
+        .social-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -55,41 +61,43 @@
             <p class="text-muted">Task & To-Do Manager</p>
         </div>
 
-        <!-- Tabs -->
-        <ul class="nav nav-pills nav-justified mb-4" role="tablist">
+        <!-- Tabs Navigation -->
+        <ul class="nav nav-pills nav-justified mb-4" id="authTabs" role="tablist">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#pills-login" type="button">
+                <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-panel" type="button" role="tab">
                     Login
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link" data-bs-toggle="pill" data-bs-target="#pills-register" type="button">
+                <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register-panel" type="button" role="tab">
                     Register
                 </button>
             </li>
         </ul>
 
         <!-- Tab Content -->
-        <div class="tab-content">
-            <!-- Login Tab -->
-            <div class="tab-pane fade show active" id="pills-login" role="tabpanel">
+        <div class="tab-content" id="authTabsContent">
+            
+            <!-- ============================================ -->
+            <!-- LOGIN TAB -->
+            <!-- ============================================ -->
+            <div class="tab-pane fade show active" id="login-panel" role="tabpanel">
                 <form method="post" action="{% url 'account_login' %}">
                     {% csrf_token %}
                     
-                   <!-- Social Login - Disabled for now -->
-                    
+                    <!-- Social Login -->
                     <div class="text-center mb-3">
                         <p class="mb-2">Sign in with:</p>
                         <a href="{% provider_login_url 'google' %}" class="social-btn btn btn-outline-danger">
                             <i class="fab fa-google"></i>
                         </a>
-                         <button class="social-btn btn btn-outline-dark" disabled style="opacity: 0.5; cursor: not-allowed;" title="Coming soon">
+                        <button class="social-btn btn btn-outline-dark" disabled title="Coming soon">
                             <i class="fab fa-github"></i>
-                        </button></div> 
-                        
-                        
+                        </button>
                     </div>
+                    
                     <p class="text-center text-muted">or:</p>
+
                     <!-- Username/Email -->
                     <div class="mb-3">
                         <label for="id_login" class="form-label">Email or Username</label>
@@ -131,26 +139,26 @@
                 </form>
             </div>
 
-            <!-- Register Tab -->
-            <div class="tab-pane fade" id="pills-register" role="tabpanel">
+            <!-- ============================================ -->
+            <!-- REGISTER TAB -->
+            <!-- ============================================ -->
+            <div class="tab-pane fade" id="register-panel" role="tabpanel">
                 <form method="post" action="{% url 'account_signup' %}">
                     {% csrf_token %}
                     
-                   <!-- Social Signup - Disabled for now -->
+                    <!-- Social Signup -->
+                    <div class="text-center mb-3">
+                        <p class="mb-2">Sign up with:</p>
+                        <a href="{% provider_login_url 'google' %}" class="social-btn btn btn-outline-danger">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <button class="social-btn btn btn-outline-dark" disabled title="Coming soon">
+                            <i class="fab fa-github"></i>
+                        </button>
+                    </div>
                     
-                 <div class="text-center mb-3">
-                    <p class="mb-2">Sign up with:</p>
-                    <a href="{% provider_login_url 'google' %}" class="social-btn btn btn-outline-danger">
-                        <i class="fab fa-google"></i>
-                    </a>
-                    <button class="social-btn btn btn-outline-dark" disabled style="opacity: 0.5; cursor: not-allowed;" title="Coming soon">
-                        <i class="fab fa-github"></i>
-                    </button>
-                   
-                    
-                </div>
+                    <p class="text-center text-muted">or:</p>
 
-              <!--   <p class="text-center text-muted">or:</p>  -->
                     <!-- Username -->
                     <div class="mb-3">
                         <label for="registerUsername" class="form-label">Username</label>
@@ -181,6 +189,7 @@
                     </button>
                 </form>
             </div>
+
         </div>
     </div>
 
