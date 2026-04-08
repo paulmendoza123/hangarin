@@ -136,12 +136,9 @@
                                     <li><hr class="dropdown-divider"></li>
                                     <!-- ✅ FIXED LOGOUT - POST form using Django's logout view -->
                                     <li>
-                                        <a href="{% url 'account_logout' %}" class="dropdown-item text-danger">
+                                         <a href="{% url 'account_logout' %}" class="dropdown-item text-danger">
                                             <i class="fas fa-sign-out-alt me-2"></i> Logout
                                         </a>
-                                            {% csrf_token %}
-    
-                                        </form>
                                     </li>
                                 {% else %}
                                     <li>
