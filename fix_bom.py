@@ -1,0 +1,6 @@
+content = f.read() 
+f.close() 
+f = open(r'C:\Users\MICHAEL\AppData\Local\Programs\Python\Python311\Lib\site-packages\pwa\templates\manifest.json', 'w', encoding='utf-8') 
+f.write(content) 
+f.close() 
+print('Done!') 

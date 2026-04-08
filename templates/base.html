@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Hangarin - Task Manager{% endblock %}</title>
-    
+     {% load pwa %}
     {% progressive_web_app_meta %}
     <style>
     .hover-bg:hover {
@@ -173,5 +173,18 @@
     </script>
     
     {% block extra_js %}{% endblock %}
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/serviceworker.js')
+                .then(function(registration) {
+                    console.log('ServiceWorker registered:', registration.scope);
+                })
+                .catch(function(error) {
+                    console.log('ServiceWorker registration failed:', error);
+                });
+            });
+        }
+    </script>
 </body>
 </html>
