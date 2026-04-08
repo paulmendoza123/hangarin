@@ -27,19 +27,6 @@ SECRET_KEY = 'django-insecure-un#1s8ww&ih^^j0xa8#11_8h)8api^ell7-bwssf!(h7wl$l6$
 DEBUG = True
 ALLOWED_HOSTS = ['paulmendoza981.pythonanywhere.com', '127.0.0.1', 'localhost']
 
-# CSRF Security for Production/PWA/iPhone
-CSRF_TRUSTED_ORIGINS = [
-    'https://paulmendoza981.pythonanywhere.com',
-    'http://127.0.0.1:8000',
-    'http://localhost:8000',
-]
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SAMESITE = 'Lax'
-CSRF_COOKIE_SAMESITE = 'Lax'
-SECURE_BROWSER_XSS_FILTER = True
-SECURE_CONTENT_TYPE_NOSNIFF = True
-
 
 # Application definition
 
@@ -178,38 +165,23 @@ ACCOUNT_SIGNUP_FIELDS = [
 # ═══════════════════════════════════════════════════════════
 # Progressive Web App (PWA) Settings
 # ═══════════════════════════════════════════════════════════
-
-PWA_APP_NAME = 'Hangarin'
-PWA_APP_DESCRIPTION = "Task & To-Do Manager - Stay organized and productive"
-PWA_APP_THEME_COLOR = '#667eea'
+# Progressive Web App (PWA) Settings
+PWA_APP_NAME = 'ProjectSite'
+PWA_APP_DESCRIPTION = "A Progressive Web App version of ProjectSite"
+PWA_APP_THEME_COLOR = '#0A0A0A'
 PWA_APP_BACKGROUND_COLOR = '#FFFFFF'
 PWA_APP_DISPLAY = 'standalone'
 PWA_APP_SCOPE = '/'
-PWA_APP_ORIENTATION = 'any'
+PWA_APP_ORIENTATION = 'portrait'
 PWA_APP_START_URL = '/'
 PWA_APP_STATUS_BAR_COLOR = 'default'
-
 PWA_APP_ICONS = [
-    {
-        'src': '/static/img/icon-192.png',
-        'sizes': '192x192',
-        'type': 'image/png'
-    },
-    {
-        'src': '/static/img/icon-512.png',
-        'sizes': '512x512',
-        'type': 'image/png'
-    }
+    {'src': '/static/img/icon-192.png', 'sizes': '192x192'},
+    {'src': '/static/img/icon-512.png', 'sizes': '512x512'},
 ]
-
 PWA_APP_ICONS_APPLE = [
-    {
-        'src': '/static/img/icon-192.png',
-        'sizes': '192x192',
-        'type': 'image/png'
-    }
+    {'src': '/static/img/icon-192.png', 'sizes': '192x192'},
 ]
-
 PWA_APP_DIR = 'ltr'
 PWA_APP_LANG = 'en-US'
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
